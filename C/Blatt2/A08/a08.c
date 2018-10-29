@@ -4,7 +4,7 @@ enum {MAXNUMBERS=20};
 
 
 int main(void){
-	int v[MAXNUMBERS]={0}, i=0,j, arraysize, swap;
+	int v[MAXNUMBERS]={0}, i=0,j, arraysize;
 	while(scanf("%d",&v[i])!=EOF){
 	i++;
 	}
@@ -12,10 +12,9 @@ int main(void){
 	for(i=0;i<arraysize;i++){
 		for(j=i+1;j<arraysize;j++){
 			if(v[j]<v[i]){
-				swap=v[i];
-				v[i]=v[j];
-				v[j]=swap;
-				swap=0;
+				v[i]+=v[j];
+				v[j]=v[i]-v[j];
+				v[i]=v[i]-v[j];
 			}
 		}
 
