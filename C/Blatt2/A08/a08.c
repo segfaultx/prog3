@@ -22,7 +22,7 @@ int main(void){
 	}
 
 	for(j=0; j<i;j++){
-		printf("%6d\n",v[j]);
+		printf("%06d\n",v[j]);
 	}
 	return 0;
 }
