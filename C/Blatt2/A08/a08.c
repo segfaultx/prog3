@@ -6,7 +6,10 @@ enum {MAXNUMBERS=20};
 int main(void){
 	int v[MAXNUMBERS]={0}, i=0,j, arraysize;
 	while(scanf("%d",&v[i])!=EOF){
-	i++;
+		if(i==MAXNUMBERS-1){
+			break;
+		}
+		i++;
 	}
 	arraysize=i;
 	for(i=0;i<arraysize;i++){
