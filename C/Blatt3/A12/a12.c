@@ -49,5 +49,6 @@ int main(void){
 		soundex(input,res);
 		printf("\n");
 	}
+	printf("\n");
 	return 0;
 }
