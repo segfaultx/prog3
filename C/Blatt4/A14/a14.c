@@ -30,9 +30,11 @@ void deleteList(nodep lst){
 }
 
 nodep copyList(nodep lst){
+
 	nodep copy, currEle=lst,currCopyEle;
 	copy = malloc(sizeof(struct List));
 	currCopyEle = copy;
+	/* iterate forwards over list which is copied from */
 	while(currEle!=NULL){
 		currCopyEle->data = currEle->data;
 		if(currEle->next ==NULL) break;
@@ -40,8 +42,10 @@ nodep copyList(nodep lst){
 		currEle = currEle->next;
 		currCopyEle = currCopyEle->next;
 	}
+	/* initialize last ele as NULL */
 	currCopyEle -> next = NULL;
 	currCopyEle = copy;
+	/* set backwards references */
 	while(currCopyEle->next!=NULL){
 		currCopyEle->next->prev = currCopyEle;
 		currCopyEle = currCopyEle->next;
