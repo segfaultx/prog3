@@ -41,6 +41,11 @@ nodep copyList(nodep lst){
 		currCopyEle = currCopyEle->next;
 	}
 	currCopyEle -> next = NULL;
+	currCopyEle = copy;
+	while(currCopyEle->next!=NULL){
+		currCopyEle->next->prev = currCopyEle;
+		currCopyEle = currCopyEle->next;
+	}
 	return copy;
 }
 
