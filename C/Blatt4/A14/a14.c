@@ -102,6 +102,8 @@ nodep insertAt(nodep lst, int pos, void *data){
 			currentEle->next->next = NULL;
 			currentEle->next->prev = currentEle;
 			return lst;
+		}else{
+			return NULL;
 		}
 	}
 
