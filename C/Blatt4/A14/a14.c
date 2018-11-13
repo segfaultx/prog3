@@ -94,10 +94,10 @@ nodep insertAt(nodep lst, int pos, void *data){
 	/* Special Case, index = -1 */
 	if (pos<0){
 		if(pos==-1){
-			while(currentELe->next !=NULL){
+			while(currentEle->next !=NULL){
 				currentEle = currentEle ->next;
 			}
-			currentEle->next = malloc(sizeof(sturct List));
+			currentEle->next = malloc(sizeof(struct List));
 			currentEle->next->data = data;
 			currentEle->next->next = NULL;
 			currentEle->next->prev = currentEle;
@@ -140,25 +140,18 @@ nodep insertAt(nodep lst, int pos, void *data){
 	return lst;
 }
 
-int main(void){
-	char *woerter[]={"Wort1","Wort2","Wort3","WORT4"};
+int main(int argc, char *argv[]){
 	nodep lst=NULL,copy;
+	int i;
 	lst = malloc(sizeof(struct List));
-	lst=insertAt(lst,0,woerter[0]);
-	lst=insertAt(lst,1,woerter[1]);
-	lst=insertAt(lst,2,woerter[2]);
-	lst=insertAt(lst,1,woerter[3]);
+	for(i=1; i<argc; i++){
+		lst = insertAt(lst,i-1,argv[i]);
+	}
 	printlst(lst);
 	copy=copyList(lst);
-	printf("DELETE AT INDEX 1\n");
-	lst=deleteAt(lst,1);
-	printlst(lst);
-	printf("DELETE AT INDEX 0\n");
-	lst=deleteAt(lst,0);
-	printlst(lst);
 	deleteList(lst);
-	printf("COPIED LIST\n");
 	printlst(copy);
+	deleteList(copy);
 
 	return 0;
 }
