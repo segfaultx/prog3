@@ -91,6 +91,21 @@ nodep insertAt(nodep lst, int pos, void *data){
 	nodep currentEle = lst, copyHelper;
 	/* if list is empty return NULL to signal error */
 	if(lst == NULL) return NULL;
+	/* Special Case, index = -1 */
+	if (pos<0){
+		if(pos==-1){
+			while(currentELe->next !=NULL){
+				currentEle = currentEle ->next;
+			}
+			currentEle->next = malloc(sizeof(sturct List));
+			currentEle->next->data = data;
+			currentEle->next->next = NULL;
+			currentEle->next->prev = currentEle;
+			return lst;
+		}
+	}
+
+
 	/* insert into head */
 	if (pos == 0){
 		lst->data = data;
