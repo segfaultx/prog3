@@ -34,6 +34,7 @@ nodep copyList(nodep lst){
 	nodep copy, currEle=lst,currCopyEle;
 	copy = malloc(sizeof(struct List));
 	currCopyEle = copy;
+	copy->prev = NULL;
 	/* iterate forwards over list which is copied from */
 	while(currEle!=NULL){
 		currCopyEle->data = currEle->data;
@@ -150,7 +151,14 @@ int main(int argc, char *argv[]){
 	printlst(lst);
 	copy=copyList(lst);
 	deleteList(lst);
-	printlst(copy);
+	while(copy->next!=NULL){
+		copy=copy->next;
+	}
+	printf("REVERSE ORDER\n");
+	while(copy!=NULL){
+		printf("%s\n",(char*)copy->data);
+			copy=copy->prev;
+	}
 	deleteList(copy);
 
 	return 0;
