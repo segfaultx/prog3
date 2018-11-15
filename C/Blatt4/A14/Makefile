@@ -3,7 +3,7 @@
 a14: a14.c
 	cc -g -ansi -pedantic -Wall a14.c -o a14
 run: a14
-	valgrind -q ./a14
+	valgrind -q ./a14 ${ARGS}
 remove: a14
 	rm a14
 debug: a14

@@ -145,6 +145,10 @@ int main(int argc, char *argv[]){
 	nodep lst=NULL,copy;
 	int i;
 	lst = malloc(sizeof(struct List));
+	if(argc<=1){
+		free(lst);
+		return 1;
+	}
 	for(i=1; i<argc; i++){
 		lst = insertAt(lst,i-1,argv[i]);
 	}
