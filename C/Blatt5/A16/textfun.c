@@ -32,19 +32,42 @@ void clearlist(void){
 }
 
 struct Fundstelle find(const char *s){
-	struct Fundstelle found;
-	
+	struct Fundstelle found = {
+				NULL,
+				NULL
+	};
+	ListEle *currentWord = wordlist;
+	while(currentWord!=NULL){
+		if(strncmp(s,currentWord->suchwort,strlen(currentWord->suchwort))==0){
+			found.stelleImSuchString = s;
+			found.ersetzung = currentWord;
+			break;
+		}
+		currentWord=currentWord->next;
+	}
 	return found;
 }
-int main(int argc, char *argv[]){
-	int i;
-	char *such,*ersetz;
-	if(argc<=1) return 1; /* No Replace Words */
-	for(i=1;i<argc;i++){
-		such = strtok(argv[i],"=");
-		ersetz = strtok(NULL,"=");
-		addPair(such,ersetz);
+
+int replaceAll(char *s){
+	int count=0,i;
+	char *curr=s, res[100]=" ";
+	struct Fundstelle currFind;
+	for(i=0;*curr;i++){
+		currFind=find(curr);
+		if(currFind.stelleImSuchString!=NULL){
+			strcat(res,currFind.ersetzung->ersetzwort);
+			i+=strlen(currFind.ersetzung->ersetzwort)-1;
+			curr+=strlen(currFind.ersetzung->suchwort);
+			currFind.ersetzung= NULL;
+			currFind.stelleImSuchString=NULL;
+			count++;
+			continue;
+		}else{
+			res[i]=*curr;
+		}
+		curr++;
 	}
-	
-	return 0;
+	s = res;
+	printf("%s",s);
+	return count;
 }
