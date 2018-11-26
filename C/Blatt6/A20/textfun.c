@@ -24,7 +24,7 @@ void addPair(const char *such, const char *ersatz){
 	}
 }
 
-void clearlist(void){
+void clearList(void){
 	ListEle *curr = wordlist, *deleteHelper;
 	while(curr!=NULL){
 		deleteHelper = curr;
@@ -42,7 +42,7 @@ struct Fundstelle find(const char *s){
 	ListEle *currentWord = wordlist;
 	while(currentWord!=NULL){
 		if(strncmp(s,currentWord->suchwort,strlen(currentWord->suchwort))==0){
-			found.stelleImSuchString = strcpy(found.stelleImSuchString,s);
+			found.stelleImSuchString = s;
 			found.ersetzung = currentWord;
 			break;
 		}

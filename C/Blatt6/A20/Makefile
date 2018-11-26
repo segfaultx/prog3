@@ -1,10 +1,14 @@
 .PHONY: run clean
+ARGS=kunft=yo haus=unterkunft
 
 a20: textfun.o main.o
-	cc -g -ansi -pedantic -Wall textfun.o main.o -o a20
+	cc -g -ansi -pedantic -Wall *.o -o a20
+
+main.o: main.c
+	cc -c  main.c
+
 textfun.o: textfun.c textfun.h
 	cc -c  textfun.c
-main: main.c textfun.h
-	cc -c  main.c
+
 run: a20
-	valgrind -q ./a20
+	valgrind ./a20 $(ARGS)
