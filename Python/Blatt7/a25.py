@@ -7,7 +7,5 @@ def devocalize(s): #A25
         else:
             res+=ele
     return res
-
 print(devocalize("Das ist ein Baerenspass"))
-
 help(devocalize) #A26

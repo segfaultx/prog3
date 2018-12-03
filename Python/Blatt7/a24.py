@@ -11,7 +11,5 @@ while i < len(m): #aufgabenstellung
     z = m[i]
     print(z, " hoch zwei ist ",z**2)
     i+=1
-
-
 for ele in m: #lösung
     print(ele, " hoch zwei ist ", ele**2)
