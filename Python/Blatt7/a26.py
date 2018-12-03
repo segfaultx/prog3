@@ -2,4 +2,4 @@
 
 from a25 import devocalize
 
-help(devocalize)
+help(devocalize) # print help function of devocalize() from module a25
