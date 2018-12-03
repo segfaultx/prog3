@@ -1,3 +1,5 @@
+#!usr/bin/env python3
+
 lst = list(range(0, 101))
 print(lst[:11])
 print(lst[-11:])

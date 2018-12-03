@@ -1,3 +1,5 @@
+#!usr/bin/env python3
+
 def devocalize(s):  # A25
     "Entfernt unnötige Vokale aus gegebenem String"
     res = ""
