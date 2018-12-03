@@ -1,11 +1,13 @@
-def devocalize(s): #A25
+def devocalize(s):  # A25
     "Entfernt unnötige Vokale aus gegebenem String"
-    res=""
+    res = ""
     for ele in s:
         if ele in "aeiouAEIOU":
             continue
         else:
-            res+=ele
+            res += ele
     return res
+
+
 print(devocalize("Das ist ein Baerenspass"))
-help(devocalize) #A26
+help(devocalize)  # A26
