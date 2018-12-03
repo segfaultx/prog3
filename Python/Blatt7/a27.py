@@ -9,6 +9,6 @@ def dreh(lst):  # a27
         return [lst[-1]] + dreh(lst[:-1])
 
 
-lst = [1, 2, 3, 4, 5] # example lst
-print(lst) # print lst to show start order
-print(dreh(lst)) # print list to show result of using dreh() func
+lst = [1, 2, 3, 4, 5]  # example lst
+print(lst)  # print lst to show start order
+print(dreh(lst))  # print list to show result of using dreh() func
