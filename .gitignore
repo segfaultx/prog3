@@ -1,3 +1,4 @@
 .idea
 *.xml
 *.txt
+Python/*/__pychache__/
