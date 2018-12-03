@@ -9,5 +9,6 @@ def devocalize(s):  # A25
     return res
 
 
-print(devocalize("Das ist ein Baerenspass."))
-help(devocalize)  # A26
+if __name__ == "__main__":
+    print(devocalize("Das ist ein Baerenspass."))
+    help(devocalize)  # A26
