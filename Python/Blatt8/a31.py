@@ -17,5 +17,5 @@ for i in range(len(file)):
         elif word != '':
             res[word] = 1
 res = sorted(res.items(), key=lambda x: tuple(reversed(x)), reverse=True)[:25]
-for ele in res:
-    print(ele)
+for word, amount in res:
+    print("W:", word, "A:", amount)
