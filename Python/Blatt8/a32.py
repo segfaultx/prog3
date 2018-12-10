@@ -31,3 +31,5 @@ minutes, path = auskunft("S9", "Kelsterbach", "Niederrad")  # task
 print(minutes, "Minuten so: ", path)
 minutes, path = auskunft("S9", "Wiesbaden Ost", "Ruesselsheim")  # personal test
 print(minutes, "Minuten so:", path)
+minutes, path = auskunft("U4", "Hessen-Center", "Seckbacher Landstrasse")  # 2nd personal test
+print(minutes, "Minuten so:", path)
