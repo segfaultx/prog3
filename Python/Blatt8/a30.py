@@ -12,7 +12,7 @@ def ggT(x, y):
 
 def ggT2(x, y):
     """Iterative function to find shared divider"""
-    while x % y != 0:  # while x module y is not 0 continue calculating divider
+    while x % y != 0:  # while x modulo y is not 0 continue calculating divider
         if x < y:
             x, y = y, x
         x = x % y
