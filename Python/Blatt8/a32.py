@@ -10,7 +10,7 @@ def auskunft(linie, start, ziel):
     time = 0
     for line in open("./a32-fahrzeiten.txt").readlines():  # read in file, seperate lines and build dict with stops data
         line_data = line.split(";")
-        if line_data[0] in haltestellen_dict:
+        if line_data[0] in haltestellen_dict:  # if line exists in dict append data to list, else create new dict entry
             haltestellen_dict[line_data[0]].append(
                 {"start": line_data[1].strip(), "end": line_data[2].strip(), "time": int(line_data[3].strip())})
         else:
@@ -27,5 +27,5 @@ def auskunft(linie, start, ziel):
 
 
 print(auskunft("Bus6", "Nordfriedhof", "Nordfriedhof"))
-minuten, weg = auskunft("S9", "Kelsterbach", "Niederrad")
-print(minuten, "Minuten so: ", weg)
+minutes, path = auskunft("S9", "Kelsterbach", "Niederrad")
+print(minutes, "Minuten so: ", path)
