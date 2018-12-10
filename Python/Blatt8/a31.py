@@ -14,7 +14,8 @@ for i in range(len(file)):
     for word in file[i].split(" "):
         if word in res:
             res[word] += 1
-        else:
+        elif word != '':
             res[word] = 1
-res = sorted(res.items())
-print(res)
+res = sorted(res.items(), key=lambda x: tuple(reversed(x)), reverse=True)[:25]
+for ele in res:
+    print(ele)
