@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 def ggT(x, y):
     """Recursive function to find shared divider"""
     if x == y:

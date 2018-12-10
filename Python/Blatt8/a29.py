@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 def h(a, b, c=1000, *d, **e):
     print(a, b, c, d, e)
 
