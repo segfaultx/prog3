@@ -26,6 +26,8 @@ def auskunft(linie, start, ziel):
     return time, haltestellen
 
 
-print(auskunft("Bus6", "Nordfriedhof", "Nordfriedhof"))
-minutes, path = auskunft("S9", "Kelsterbach", "Niederrad")
+print(auskunft("Bus6", "Nordfriedhof", "Nordfriedhof"))  # test 1
+minutes, path = auskunft("S9", "Kelsterbach", "Niederrad")  # task
 print(minutes, "Minuten so: ", path)
+minutes, path = auskunft("S9", "Wiesbaden Ost", "Ruesselsheim")  # personal test
+print(minutes, "Minuten so:", path)
