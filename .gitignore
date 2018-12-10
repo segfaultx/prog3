@@ -2,3 +2,4 @@
 *.xml
 *.txt
 Python/*/__pychache__/
+*.vscode
