@@ -26,9 +26,9 @@ for i in range(len(file)):
             alpha_res[letter] = 1
 res = sorted(res.items(), key=lambda x: tuple(reversed(x)), reverse=True)[:25]
 alpha_res = sorted(alpha_res.items(), key=lambda x: tuple(reversed(x)), reverse=True)[:25]
-print("Words:")
+print("\nWords:\n")
 for word, amount in res:
     print("W:", word, "A:", amount)
-print("Letters:")
+print("\nLetters:\n")
 for letter, amount in alpha_res:
     print("L:", letter, "A:", amount)
