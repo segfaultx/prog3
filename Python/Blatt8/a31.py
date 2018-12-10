@@ -3,17 +3,15 @@
 import sys
 
 file = sys.argv[1]
-print("./{:s}".format(file))
 file = list(open("./{:s}".format(file), "r").readlines())
-data = []
 res = {}
 for i in range(len(file)):
     if file[i].startswith("ACT I"):
-        data = file[i:]
+        file = file[i:]
         break
-for i in range(len(data)):
-    data[i] = data[i].strip().lower()
-    for word in data[i].split(" "):
+for i in range(len(file)):
+    file[i] = file[i].strip().lower()
+    for word in file[i].split(" "):
         if word in res:
             res[word] += 1
         else:
