@@ -13,17 +13,11 @@ for i in range(len(file)):
 for i in range(len(file)):
     file[i] = file[i].strip().lower()  # reduce every line to lowercase, so we can properly count them
     for word in file[i].split(" "):
-        if word in res:
-            res[word] += 1
-        elif word != '':
-            res[word] = 1
+        res[word] = res.get(word, 0) + 1  # get value at given key, 0 default and add 1
 for i in range(len(file)):
     file[i] = file[i].strip().lower()
     for letter in file[i]:
-        if letter in alpha_res:
-            alpha_res[letter] += 1
-        elif letter.isalpha():  # if letter is alphabet add entry to alpha dict
-            alpha_res[letter] = 1
+        alpha_res[letter] = alpha_res.get(letter, 0) + 1
 res = sorted(res.items(), key=lambda x: tuple(reversed(x)), reverse=True)[:25]
 alpha_res = sorted(alpha_res.items(), key=lambda x: tuple(reversed(x)), reverse=True)[:25]
 print("\nWords:\n")
