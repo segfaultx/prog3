@@ -6,15 +6,15 @@ file = sys.argv[1]
 res = {}
 alpha_res = {}
 start_dicts = False
-for ele in open("./{:s}".format(file), "r"):
-    if ele.startswith("ACT I"):
+for line in open("./{:s}".format(file), "r"):
+    if line.startswith("ACT I"):
         start_dicts = True
     if start_dicts:
-        ele = ele.strip().lower()  # reduce every line to lowercase, so we can properly count them
-        for letter in ele:  # loop to count letters, only adds alphabet letters
+        line = line.strip().lower()  # reduce every line to lowercase, so we can properly count them
+        for letter in line:  # loop to count letters, only adds alphabet letters
             if letter.isalpha():
                 alpha_res[letter] = alpha_res.get(letter, 0) + 1
-        for word in ele.split(" "):  # loop to add words to count dict, split by whitespaces
+        for word in line.split(" "):  # loop to add words to count dict, split by whitespaces
             if word != "":
                 res[word] = res.get(word, 0) + 1  # get value at given key, 0 default and add 1
 res = sorted(res.items(), key=lambda x: tuple(reversed(x)), reverse=True)[
