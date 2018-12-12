@@ -3,21 +3,20 @@
 import sys
 
 file = sys.argv[1]
-file = list(open("./{:s}".format(file), "r").readlines())
 res = {}
 alpha_res = {}
-for i in range(len(file)):
-    if file[i].startswith("ACT I"):  # once we've found the line starting with "ACT I" copy over data and leave loop
-        file = file[i:]
-        break
-for i in range(len(file)):
-    file[i] = file[i].strip().lower()  # reduce every line to lowercase, so we can properly count them
-    for word in file[i].split(" "):
-        res[word] = res.get(word, 0) + 1  # get value at given key, 0 default and add 1
-for i in range(len(file)):
-    file[i] = file[i].strip().lower()
-    for letter in file[i]:
-        alpha_res[letter] = alpha_res.get(letter, 0) + 1
+start_dicts = False
+for ele in open("./{:s}".format(file), "r").readlines():
+    if ele.startswith("ACT I"):
+        start_dicts = True
+    if start_dicts:
+        ele = ele.strip().lower()  # reduce every line to lowercase, so we can properly count them
+        for letter in ele:
+            if letter.isalpha():
+                alpha_res[letter] = alpha_res.get(letter, 0) + 1
+        for word in ele.split(" "):
+            if word != "":
+                res[word] = res.get(word, 0) + 1  # get value at given key, 0 default and add 1
 res = sorted(res.items(), key=lambda x: tuple(reversed(x)), reverse=True)[:25]
 alpha_res = sorted(alpha_res.items(), key=lambda x: tuple(reversed(x)), reverse=True)[:25]
 print("\nWords:\n")
