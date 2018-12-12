@@ -6,7 +6,7 @@ file = sys.argv[1]
 res = {}
 alpha_res = {}
 start_dicts = False
-for ele in open("./{:s}".format(file), "r").readlines():
+for ele in open("./{:s}".format(file), "r"):
     if ele.startswith("ACT I"):
         start_dicts = True
     if start_dicts:
