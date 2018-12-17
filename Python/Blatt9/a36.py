@@ -19,8 +19,7 @@ print(wohnorte_male_rich[0][4].strip())
 
 # IV
 
-s = "{} {} bekommt mehr, als {} verdient!"
-hass_worte = [s.format(name[0], name[1], "er" if name[0] == "Herr" else "sie") for name in [name.split(";") for name in
+hass_worte = [f"{name[0]} {name[1]} bekommt mehr, als {'er' if name[0] == 'Herr' else 'sie'} verdient!" for name in [name.split(";") for name in
                                                                                             [name for name in
                                                                                              open("a36-bonz.txt") if
                                                                                              int(name.split(";")[
