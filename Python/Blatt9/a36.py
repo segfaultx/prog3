@@ -15,7 +15,7 @@ print(gehalt_female)
 wohnorte_male_rich = sorted([name for name in [name.split(";") for name in open("a36-bonz.txt") if
                                                name.split(";")[2].startswith("J")]], key=lambda x: int(x[3]),
                             reverse=True)[:1]
-print(wohnorte_male_rich[0][4])
+print(wohnorte_male_rich[0][4].strip())
 
 # IV
 
