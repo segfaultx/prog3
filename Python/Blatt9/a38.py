@@ -2,15 +2,15 @@
 
 
 def permutationen(elements):
-    if len(elements) == 0:
+    if len(elements) == 0:  # base case, empty list does not have any more permutations
         yield elements
     else:
-        for i in range(len(elements)):
-            perm = list(elements)
-            perm.remove(elements[i])
-            for perm in permutationen(perm):
-                yield [elements[i]] + perm
+        for ele in elements:
+            perm = list(elements)  # copy list
+            perm.remove(ele)  # remove current item from list
+            for perm in permutationen(perm):  # iterate over permutations of remaining list
+                yield [ele] + perm  # yield current permutation
 
 
-for e in permutationen([1, 2, 3]):
+for e in permutationen([1, 2, 3]):  # iterate over generator output
     print(e)
