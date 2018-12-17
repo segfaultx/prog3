@@ -6,7 +6,10 @@ def permutationen(elements):
         yield elements
     else:
         for i in range(len(elements)):
-            yield [elements[i]] + list(permutationen(elements[i + 1:]))
+            perm = list(elements)
+            perm.remove(elements[i])
+            for perm in permutationen(perm):
+                yield [elements[i]] + perm
 
 
 for e in permutationen([1, 2, 3]):
