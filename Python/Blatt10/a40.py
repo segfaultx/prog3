@@ -7,13 +7,28 @@ class Messreihe:
     """Class to hold multiple tempvalues with timestamps"""
 
     def __init__(self, data=None):
-        self._values = []
+        self.values = []
         if data:
             for item in data:
-                self._values.append(Messwert(item))
+                self.values.append(Messwert(item))
 
     def __len__(self):
-        return len(self._values)
+        return len(self.values)
+
+    def __add__(self, other):
+        if isinstance(other, self.__class__):
+            self.values += other.values
+        else:
+            raise TypeError
+
+    def add(self, values):
+        for item in values:
+            self.values.append(item)
+
+    def __getitem__(self, n):
+        if isinstance(n, slice):
+            return self.values[n.start:n.stop:n.step]
+        return self.values[n]
 
 
 if __name__ == "__main__":
