@@ -7,31 +7,44 @@ class Messreihe:
     """Class to hold multiple tempvalues with timestamps"""
 
     def __init__(self, data=None):
-        self.values = []
         if data:
-            for item in data:
-                self.values.append(Messwert(item))
+            self.values = [Messwert(val) for val in data]
+        else:
+            self.values = []
 
     def __len__(self):
         return len(self.values)
 
     def __add__(self, other):
         if isinstance(other, self.__class__):
-            self.values += other.values
+            for val in other.values:
+                self.add(val)
         else:
             raise TypeError
 
     def add(self, values):
-        for item in values:
-            self.values.append(item)
+        for val in values:
+            if val not in self.values:
+                self.values.append(val)
+            else:
+                raise AttributeError
 
     def __getitem__(self, n):
         if isinstance(n, slice):
             return self.values[n.start:n.stop:n.step]
         return self.values[n]
 
+    def __mr_iter(self):
+        for mw in sorted(self.values):
+            yield mw
+
+    def __iter__(self):
+        return self.__mr_iter()
+
 
 if __name__ == "__main__":
     mr = Messreihe()
     mr2 = Messreihe(open("messwerte.csv"))
-    print(mr, mr2, len(mr2))
+    print(mr, "|", mr2, "|", len(mr2), "|", mr2[100], "|", mr2[1:10])
+    for item in mr2[:10]:
+        print(item)
