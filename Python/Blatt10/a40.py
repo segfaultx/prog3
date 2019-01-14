@@ -32,7 +32,7 @@ class Messreihe:
     def __getitem__(self, n):
         if isinstance(n, slice):
             return self.values[n.start:n.stop:n.step]
-        if isinstance(n,str):
+        if isinstance(n, str):
             return [mw for mw in self.values if n in mw.time]
         return self.values[n]
 
