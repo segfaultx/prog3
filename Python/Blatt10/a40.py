@@ -7,6 +7,7 @@ class Messreihe:
     """Class to hold multiple tempvalues with timestamps"""
 
     def __init__(self, data=None):
+        super().__init__()
         if data:
             self.values = [Messwert(val) for val in data]
         else:

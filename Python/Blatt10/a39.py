@@ -5,6 +5,7 @@ class Messwert:
     """Class to hold temperature timestampts data"""
 
     def __init__(self, line, value=-99.0):
+        super().__init__()
         if value != -99:
             self.time = line
             self.temp = float(value)
