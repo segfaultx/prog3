@@ -27,11 +27,13 @@ class Messreihe:
             if val not in self.values:
                 self.values.append(val)
             else:
-                raise AttributeError
+                raise ValueError
 
     def __getitem__(self, n):
         if isinstance(n, slice):
             return self.values[n.start:n.stop:n.step]
+        if isinstance(n,str):
+            return [mw for mw in self.values if n in mw.time]
         return self.values[n]
 
     def __mr_iter(self):
