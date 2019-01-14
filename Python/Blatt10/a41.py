@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from a40 import Messreihe, Messwert
+from a40 import Messreihe
 
 mr = Messreihe(open("messwerte.csv"))
 print("Länge", len(mr))
