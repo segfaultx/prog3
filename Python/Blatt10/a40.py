@@ -17,14 +17,13 @@ class Messreihe:
         return len(self.values)
 
     def __add__(self, other):
-        if isinstance(other, self.__class__):
-            for val in other.values:
-                self.add(val)
-        else:
-            raise TypeError
+        assert isinstance(other, Messreihe.__class__), other
+        for val in other.values:
+            self.add(val)
 
     def add(self, values):
         for val in values:
+            assert isinstance(val, Messwert.__class__), val
             if val not in self.values:
                 self.values.append(val)
             else:
