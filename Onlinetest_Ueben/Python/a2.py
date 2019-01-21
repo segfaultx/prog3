@@ -11,7 +11,7 @@ def statistik(filename):
             customers_dict[line[0]] = customers_dict.get(line[0], {})
             customers_dict[line[0]][line[1]] = customers_dict[line[0]].get(line[0], int(line[2]))
     for key in sorted(customers_dict):
-        print(f'{key}'," ".join([f'{k}({v})' for k,v in sorted(customers_dict[key].items())]))
+        print(f'{key}', " ".join([f'{k}({v})' for k, v in sorted(customers_dict[key].items())]))
 
 
 if __name__ == "__main__":
