@@ -4,14 +4,11 @@ import sys
 import re
 
 amount_dict = {}
-exp1 = re.compile(r'GET (/.+)+\.(png|gif|jpg)')
-exp2 = re.compile(r'(png|gif|jpg)')
+exp1 = re.compile(
+    r'(?P<ipaddress>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}).*(?P<time>\d{2}:\d{2}:\d{2}).*(?P<get>GET (/.+)+\.(png|gif|jpg))')
 for line in open(sys.argv[1]):
-    filetype = exp1.search(line)
+    filetype = exp1.match(line)
     if filetype:
-        file = exp2.search(filetype.group()).group()
-    else:
-        continue
-    amount_dict[file] = amount_dict.get(file, 0) + 1
+        print(filetype.groupdict())
 
 print(amount_dict)
