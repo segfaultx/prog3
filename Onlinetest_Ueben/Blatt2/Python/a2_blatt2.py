@@ -38,5 +38,5 @@ def extractHi(iterable):
 for val in extractHi(["Eine Wahine sagt", "Maika’i no au!"]):
     print(val)
 print("--------")
-for val in extractHi( ("Hau’oli", "la hanau!", "Happy","Birthday!") ):
+for val in extractHi(("Hau’oli", "la hanau!", "Happy", "Birthday!")):
     print(val)
