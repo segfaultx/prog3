@@ -30,9 +30,11 @@ for word in non_hawaiian_words:
 def extractHi(iterable):
     for item in iterable:
         for word in item.split():
-            word = re.match("[a-zA-z]+", word).group()
-            if isHawaaian(word):
-                yield word
+            word = re.match("[a-zA-z]+", word)
+            if word:
+                word = word.group()
+                if isHawaaian(word):
+                    yield word
 
 
 for val in extractHi(["Eine Wahine sagt", "Maika’i no au!"]):

@@ -5,7 +5,8 @@
 
 void schwabify(char *input, char output[]){
 	int i = 0;
-	for(i = 0;*input;i++){
+	char swap[2] = {'\0','\0'};
+	while(*input){
 		if(*input == '.'){
 			strcat(output, ", woisch?");
 			i+=strlen(", woisch?");
@@ -14,18 +15,19 @@ void schwabify(char *input, char output[]){
 		}
 		if(strncmp(input,"halt",strlen("halt")) == 0){
 			strcat(output, "heb");
-			i+=strlen("heb")-1;
+			i+=strlen("heb");
 			input+=strlen("halt");
 			continue;
 		}
 		if(strncmp(input,"ist",strlen("ist")) == 0){
 			strcat(output, "isch");
-			i+=strlen("isch")-1;
+			i+=strlen("isch");
 			input+=strlen("ist");
 			continue;
 		}
 		else{
-			output[i] = *input;
+			swap[0] = *input;
+			strcat(output,swap);
 		}
 		input++;
 	}
