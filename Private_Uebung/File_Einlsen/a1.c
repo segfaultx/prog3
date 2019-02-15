@@ -8,5 +8,6 @@ int main(void){
 	while(fgets(satz,100,f) != NULL){
 		printf("%s\n",satz);
 	}
+	fclose(f);
 	return 0;
 }
